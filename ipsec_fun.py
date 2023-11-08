@@ -75,6 +75,7 @@ def create_prisma_rn(data,info):
     p(create_rn.content)
     
     data=xmltodict.parse(create_rn.content)
+    
     if data['response']['@status']=='success':
         #add the subnet to mictro
         ip_pri=address[0]+'/31'
