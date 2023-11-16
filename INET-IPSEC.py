@@ -5,8 +5,11 @@ import json
 import cred
 import csv
 import pprint as pp
+import menandmice
 from dict2xml import dict2xml
 import xmltodict
+
+headers={'X-PAN-KEY':cred.key}
 
 def p(v):
     print('*' * 70, '\n' )
@@ -40,8 +43,10 @@ with open('File\info.csv', newline='') as csvinfo:
         data=Function.get_rn(rn_name)
         if data['response']['result']==None:
                 print ("Remote network doesn't exist, create RN.")
-                data=Function.get_rn(old_rn_name)
+                old_data=Function.get_rn(old_rn_name)
                 a=ipsec_fun.create_prisma_rn(data,info)
+                
+                        ######
                 
         else:
             p('RN already exists')
