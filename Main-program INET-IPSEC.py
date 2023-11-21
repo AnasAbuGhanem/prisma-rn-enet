@@ -44,7 +44,7 @@ with open('File\info.csv', newline='') as csvinfo:
         if data['response']['result']==None:
                 print ("Remote network doesn't exist, create RN.")
                 old_data=Function.get_rn(old_rn_name)
-                a=ipsec_fun.create_prisma_rn(data,info)
+                a=ipsec_fun.create_prisma_rn(old_data,info)
                 
                         ######
                 

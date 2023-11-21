@@ -58,9 +58,9 @@ def create_prisma_rn(data,info):
     address=menandmice.get_ip()
     #change the name valute to the new RN
     del rn_data['@name']
+    del rn_data['@id']
     rn_data['bgp-peer']['peer-ip-address']=address[2]
     rn_data['bgp-peer']['local-ip-address']=address[3]
-
     rn_data['ipsec-tunnel']=pri_tunnel
     rn_data['protocol']['bgp']['peer-ip-address']=address[0]
     rn_data['protocol']['bgp']['local-ip-address']=address[1]

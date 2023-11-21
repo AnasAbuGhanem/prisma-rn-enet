@@ -4,6 +4,7 @@ It creates remote network in prisma INET tenant and locate a network and registe
 Not all the process is automated therefore some steps must be done manually.
 
 In "get_ip()" function the "ref='10.255.2.0/24'" object must be controlled that is not full net and there is /31 net available.
+
 In the info cite information the remote site "region" and "spn" must configure manually. 
 
 How to run this script?
@@ -17,3 +18,5 @@ spn: this is IPSEC Termination Node and it's depende on with location.
 function: This is which tenant this RN belongs to. 
 
 When this inforamtion are written, we can run the "Main-program INET-IPSEC.py" and the remote site will be created. 
+
+API KEY

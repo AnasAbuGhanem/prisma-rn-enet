@@ -4,7 +4,7 @@ from getpass import getpass
 import xmltodict
 
 
-user="sehaani01"
+user=input('Username: ')
 password = getpass(prompt='Input your password: ') # the default prompt is 'Password: 
 
 url_security='https://panorama.ngninfra.net/api/?type=keygen'
