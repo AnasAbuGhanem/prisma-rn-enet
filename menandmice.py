@@ -16,7 +16,7 @@ def p(v):
 
 def get_ip():
 
-    ref='10.255.2.0/24'
+    ref='10.255.0.0/21'
     #'/Ranges/25915'#25705
     url=f'https://ipam.app.essity.com/mmws/api/Ranges/'
     response=requests.get(url=url+ref,  verify=False, auth=auth).json()
