@@ -6,9 +6,9 @@ from requests.auth import HTTPBasicAuth
 import pprint as pp
 ##
 user=f"ecdomain\{cred.user}"
-pas='ESSpassE20!$2023!2'
-#auth=HTTPBasicAuth(user,cred.password)
-auth=HTTPBasicAuth(user,pas)
+
+auth=HTTPBasicAuth(user,cred.password)
+#auth=HTTPBasicAuth(user,pas)
 def p(v):
     print('*' * 70, '\n' )
     pp.pprint(v)
