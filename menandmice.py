@@ -22,8 +22,14 @@ def get_ip():
     response=requests.get(url=url+ref,  verify=False, auth=auth).json()
     ip=response['result']['range']['childRanges'][-1]['name']
     ip=ip[0:-3]
-
-    a=ip_address(ip)
+    if ip[-3:]=='254':
+        new_net=int(ip[-5])+1
+        ip=f'10.255.{new_net}.-2'
+        
+        a=ip_address(ip)
+    else:
+        a=ip_address(ip)
+        
     return a
 
 def check_ip(ip):
