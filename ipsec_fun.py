@@ -103,14 +103,14 @@ def create_prisma_rn(data,info):
         if roll[i]=='Pri':
             new_id=f'{site}-{roll[i]}@essity.com' 
             new_row=['NEW' , ' ',site, city, info['region'], roll[i],
-                    'VPN Peer IP Prisma', new_id, ip_pri,
+                    info['prisma-ip'], new_id, ip_pri,
                     address[0], address[1], '65526', address[1],
                     '64998', address[0]] 
             add_to_exel(new_row)
         else:
             new_id=f'{site}-{roll[i]}@essity.com' 
             new_row=['NEW' ,' ', site, city, info['region'], roll[i],
-                    'VPN Peer IP Prisma', new_id, ip_sec,
+                     info['prisma-ip'], new_id, ip_sec,
                     address[2], address[3], '65526', address[3],
                     '64998', address[2] ]
             add_to_exel(new_row)
