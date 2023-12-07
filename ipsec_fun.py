@@ -6,6 +6,8 @@ from dict2xml import dict2xml
 import xmltodict
 import menandmice
 import Function
+import openpyxl
+from openpyxl import workbook, load_workbook
 headers={'X-PAN-KEY':cred.key}
 
 def p(v):
@@ -94,5 +96,32 @@ def create_prisma_rn(data,info):
             p(add_sec_address)
         else:
             print('Subnet alraedy exists in Men&Mice')
-            p(check_sec)           
+            p(check_sec)    
+
+    # uppdate the exel file
+    for i in range (len(roll)):   
+        if roll[i]=='Pri':
+            new_id=f'{site}-{roll[i]}@essity.com' 
+            new_row=['NEW' , ' ',site, city, info['region'], roll[i],
+                    'VPN Peer IP Prisma', new_id, ip_pri,
+                    address[0], address[1], '65526', address[1],
+                    '64998', address[0]] 
+            add_to_exel(new_row)
+        else:
+            new_id=f'{site}-{roll[i]}@essity.com' 
+            new_row=['NEW' ,' ', site, city, info['region'], roll[i],
+                    'VPN Peer IP Prisma', new_id, ip_sec,
+                    address[2], address[3], '65526', address[3],
+                    '64998', address[2] ]
+            add_to_exel(new_row)
+    
         
+def add_to_exel(new_row):
+    file_name='File\Prisma eNet Remote Networks details.xlsx'
+    sheet = "Config eNet"
+    wb=load_workbook(file_name)
+    ws=wb[sheet]
+
+    ws.append(new_row)
+    wb.save(file_name)
+    p('Added to Exel file')
