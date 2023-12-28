@@ -65,7 +65,7 @@ def ip_address(ip):
         return adress
     elif ip[-2]=='.':
         okt=int(ip[-1:]) +2
-        peer_ip_pr=ip[:-2]+str(okt )
+        peer_ip_pr=ip[:-1]+str(okt )
         loc_ip_pri=ip[:-1]+str(okt +1)
         peer_ip_sec=ip[:-1]+str(okt +2)
         loc_ip_sec=ip[:-1]+str(okt +3)
